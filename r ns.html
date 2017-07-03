@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ 
+ <link rel="stylesheet" type="text/css" href="mystyle.css">
+ 
+ <script type="application/javascript">
+       
+var stringA = "";
+var stringB = "";	 
+var results = [];
+var numberL = 0;
+
+     var linkRefL = [];
+	 var linkRefR = [];
+	 
+	 var linkRefLcla = [];
+	 var linkRefRcla = [];
+	 
+function createLinkL(){
+	this.setAttribute("class", "targeted");
+	var tidn = Number((/\d+/g).exec(this.id));
+	
+	(linkRefL[tidn]).forEach(function(x,y){
+		numberL = Number(x)
+		document.getElementById("B").children[numberL].setAttribute("class", "targeted");	
+		
+	});
+	
+};
+
+function removeLinkL(){
+	var tidn = Number((/\d+/g).exec(this.id));	
+	this.setAttribute("class", (linkRefLcla[tidn].slice(-1)[0]) );
+	
+	(linkRefL[tidn]).forEach(function(x,y){		
+		numberL = Number(x)
+		document.getElementById("B").children[numberL].setAttribute("class", (linkRefRcla[numberL].slice(-1)[0]));	
+		
+	});
+	
+};
+
+function createLinkR(){
+	this.setAttribute("class", "targeted");
+	var tidn = Number((/\d+/g).exec(this.id));
+	
+	(linkRefR[tidn]).forEach(function(x,y){
+		numberL = Number(x)
+		document.getElementById("A").children[numberL].setAttribute("class", "targeted");	
+		
+	});
+	
+};
+
+function removeLinkR(){
+	var tidn = Number((/\d+/g).exec(this.id));	
+	this.setAttribute("class", (linkRefRcla[tidn].slice(-1)[0]) );
+	
+	(linkRefR[tidn]).forEach(function(x,y){		
+		numberL = Number(x)
+		document.getElementById("A").children[numberL].setAttribute("class", (linkRefLcla[numberL].slice(-1)[0]));	
+		
+	});
+	
+};
+
+function createCopyL(){
+	
+	var text = "";
+	var tidn = Number((/\d+/g).exec(this.id));
+	var span;
+	var textNode; 
+	var divC = document.getElementById("C");	
+	//var y = event.clientY;
+	
+	(linkRefL[tidn]).forEach(function(x,y){
+		
+		numberL = Number(x)
+		text = document.getElementById("B").children[numberL].textContent;	
+		span = document.createElement("span");
+		textNode = document.createTextNode(text);
+		span.appendChild(textNode);
+		divC.appendChild(span);
+		
+	});
+
+};
+
+function createCopyR(){
+
+	
+	var text = "";
+	var tidn = Number((/\d+/g).exec(this.id));
+	var span;
+	var textNode; 
+	var divC = document.getElementById("C");	
+	//var y = event.clientY;
+	
+	(linkRefR[tidn]).forEach(function(x,y){
+		
+		numberL = Number(x)
+		text = document.getElementById("A").children[numberL].textContent; 
+		span = document.createElement("span");
+		textNode = document.createTextNode(text);
+		span.appendChild(textNode);
+		divC.appendChild(span);
+		
+	});
+
+};
+
+function clearC(){
+
+	//var collection = document.getElementById("C").childNodes;
+	var parent = document.getElementById("C").innerHTML = "";
+	
+		/*for (i=0; i<collection.length; i++) {
+			parent.removeChild(collection[i]);
+		}*/
+
+};
+
+/*
+
+var a = "a";
+var b = "b";
+var c = "c";
+var d = "d";
+
+ab=[a,b,c,d];
+
+var new_array = [];
+var twoDelem;
+
+function cr_cpls (x) {
+
+    for (n=0; n<(ab.length-1); n++) {
+     
+     for (i=n+1; i<(ab.length); i++) {     
+      eval("new_array.push([ab["+n+"],ab["+i+"]]);");   
+     }
+        
+    }
+    return new_array;
+   }
+   
+   cr_cpls(ab);
+   
+
+	*/
+   
+   
+function takeStrings(){
+
+document.getElementById("A").textContent = "";
+document.getElementById("B").textContent = "";
+
+stringA = document.getElementById("uPutM").value;
+stringB = document.getElementById("uPutN").value;
+
+	var arA = stringA.split(".").filter(Boolean);
+	var arB = stringB.split(".").filter(Boolean);
+
+		var lEngthA = arA.length;
+		var lEngthB = arB.length;
+		
+		var a = "sentA";
+		var b = "sentB";
+
+	for (i=0;i<lEngthA;i++) { eval ( "var "+a+i+" = arA[i] ;"); }
+	for (i=0;i<lEngthB;i++) { eval ( "var "+b+i+" = arB[i] ;"); }
+	//sent0;
+	for (i=0;i<lEngthA;i++) { eval ( "var "+a+i+"m = "+ a + i +".split(/[ *, * *()* ]/).filter(Boolean);"); }
+	for (i=0;i<lEngthB;i++) { eval ( "var "+b+i+"m = "+ b + i +".split(/[ *, * *()* ]/).filter(Boolean);"); }
+	//sentB5m.length;
+	var aa = new Array(lEngthA);
+	var ab = new Array(lEngthB);
+
+	for (i=0;i<lEngthA;i++) { eval ( "aa[i] = " + a + i + "m;");  }
+	for (i=0;i<lEngthB;i++) { eval ( "ab[i] = " + b + i + "m;");  }
+	//ab;
+	var twoDarr= new Array(lEngthA*lEngthB);
+	for (i=0;i<twoDarr.length;i++) {twoDarr[i]=[[],[]];} 
+
+  twoDarr.map(function(x,y) {
+      return x[0] = aa[parseInt(y/lEngthB)];
+      });
+  twoDarr.map(function(x,y) {
+      return x[1] = ab[parseInt(y%lEngthB)];
+      });    
+//  twoDarr;
+    var prefixL = "valLeft"; var prefixR = "valRight";
+
+	results = twoDarr.map(function(x,y) {      
+          eval ( "var "+ prefixL + y + "= 0;" );
+          eval ( "var "+ prefixR + y + "= 0;" );
+          x[0].forEach(function(el){
+    x[1].includes(el) ? eval ( prefixL + y + "++" ) : 0;
+          });
+          x[1].forEach(function(el){
+    x[0].includes(el) ? eval ( prefixR + y + "++" ) : 0;
+          });
+return [eval ( "("+prefixL+y+")/(x[0].length) + ("+prefixR+y+")/(x[1].length)")]
+      });
+
+	  var spanA = "spanA";
+	  var textNodeA = "textNodeA";
+	  var getA = document.getElementById("A");	  
+	  
+	arA.forEach(function( x, i ){
+		  
+		  eval ( "var spanA" + i + " = document.createElement(\u0022span\u0022);");	
+		  eval ( "spanA" + i + ".id = \u0022spanA"+i+"\u0022");
+		  eval ( "var textNodeA" + i + "= document.createTextNode(\u0022" + x +"."+ "\u0022);" );
+		  eval ( "spanA" + i + ".appendChild(textNodeA" + i + ");" );
+		  eval (   )
+		  return eval ( "document.getElementById(\u0022A\u0022).appendChild(spanA"+i+");");		  
+		
+	}); 
+	  var spanB = "spanB";
+	  var textNodeB = "textNodeB";
+	  var getB = document.getElementById("B");
+	  
+	arB.forEach(function( x, i ){
+		  
+		  eval( "var spanB" + i + " = document.createElement(\u0022span\u0022);");
+		  eval ( "spanB" + i + ".id = \u0022spanB"+i+"\u0022");		  
+		  eval ( "var textNodeB" + i + "= document.createTextNode(\u0022" + x +"."+ "\u0022);" );
+		  eval ( "spanB" + i + ".appendChild(textNodeB" + i + ");" );
+		  return eval ( "document.getElementById(\u0022B\u0022).appendChild(spanB"+i+");");		  
+		
+	}); 		
+	
+	var collectionS = document.getElementsByTagName("span"); 	
+	for (i = 0; i < collectionS.length; i++) { collectionS[i].setAttribute("class", "white"); }
+	
+	  var collectionA = document.getElementById("A"); 
+	  var collectionB = document.getElementById("B"); 
+					
+	var linkLall = (function(x){ while(x.push([]) < lEngthA); return x})([]);
+    var linkRall = (function(x){ while(x.push([]) < lEngthB); return x})([]);
+	
+	var linkLred = (function(x){ while(x.push([]) < lEngthA); return x})([]);
+    var linkRred = (function(x){ while(x.push([]) < lEngthB); return x})([]);
+
+	var linkLind = (function(x){ while(x.push([]) < lEngthA); return x})([]);
+    var linkRind = (function(x){ while(x.push([]) < lEngthB); return x})([]);
+	
+	var linkLcla = (function(x){ while(x.push([]) < lEngthA); return x})([]);
+    var linkRcla = (function(x){ while(x.push([]) < lEngthB); return x})([]);	
+
+	
+	results.forEach(function(x,y) {     
+	
+     if ( Number(x) >= (1.4) ) { 
+								eval( "(linkLred["+parseInt(y/lEngthB)+"]).push("+parseInt(y%lEngthB)+");" );     
+								eval( "(linkRred["+parseInt(y%lEngthB)+"]).push("+parseInt(y/lEngthB)+");" );
+									} 
+	});
+		
+	results.forEach(function(x,y) {  
+	
+	 if ( Number(x) >= (0.9) ) {	
+								eval( "(linkLall["+parseInt(y/lEngthB)+"]).push("+parseInt(y%lEngthB)+");" );     
+								eval( "(linkRall["+parseInt(y%lEngthB)+"]).push("+parseInt(y/lEngthB)+");" );								
+									}			
+	});  
+	
+	results.forEach(function(x,y) {  
+	
+	 if ( Number(x) >= (0) ) {	
+								eval( "(linkLind["+parseInt(y/lEngthB)+"]).push("+parseInt(y%lEngthB)+");" );     
+								eval( "(linkRind["+parseInt(y%lEngthB)+"]).push("+parseInt(y/lEngthB)+");" );								
+									}			
+	}); 
+	
+	linkRefL = linkLall;
+	linkRefR = linkRall;  
+	
+			  
+	linkLall.forEach(function( x, y){
+		  
+	 if  ( (x.length) !== (0) ) {	
+								(linkLcla[y]).push("yellow");
+								collectionA.childNodes[y].setAttribute("class", "yellow"); 
+								collectionA.childNodes[y].setAttribute("title", "This might be a false alarm... Check our suggestion and if it is so, lick once at this sentene to let us know!"); 
+								collectionA.childNodes[y].addEventListener("mouseover", createLinkL); 	 	           
+								collectionA.childNodes[y].addEventListener("click", removeLinkL); 
+								collectionA.childNodes[y].addEventListener("dblclick", createCopyL); 	 	           								
+									}
+	});
+	
+	linkRall.forEach(function( x, y){
+	
+	 if  ( (x.length) !== (0) ) {	
+								(linkRcla[y]).push("yellow");								
+								collectionB.childNodes[y].setAttribute("class", "yellow"); 
+								collectionB.childNodes[y].setAttribute("title", "This might be a false alarm... Check our suggestion and if it is so, lick once at this sentene to let us know!"); 
+								collectionB.childNodes[y].addEventListener("mouseover", createLinkR); 	 	           
+								collectionB.childNodes[y].addEventListener("click", removeLinkR); 	 	           												   												   
+								collectionB.childNodes[y].addEventListener("dblclick", createCopyR); 	 	           																
+								  	 }	                    
+	});	
+
+	linkLred.forEach(function( x, y){
+		  
+	 if  ( (x.length) !== (0) ) {
+								(linkLcla[y]).push("red");								
+								collectionA.childNodes[y].setAttribute("class", "red"); 
+								collectionA.childNodes[y].setAttribute("title", "This looks suspicious"); 
+								 	 	           
+												   
+									}
+	});
+	
+	linkRred.forEach(function( x, y){
+	
+	 if  ( (x.length) !== (0) ) {
+								(linkRcla[y]).push("red");																
+								collectionB.childNodes[y].setAttribute("class", "red"); 
+								collectionB.childNodes[y].setAttribute("title", "This looks highly suspicious!"); 
+								
+								
+								  	 }	                    
+	});	
+	
+	linkRefLcla = linkLcla;
+	linkRefRcla = linkRcla;
+};
+
+</script>
+ </head>
+ <body>
+Teaching tech is designed to relieve the cognitive load teachers face in their hard task of educating the masses (run intraclass cheating check)
+<br>						 and to offer effortlesly constructive insights (upload primary sources relative to the assignment)
+<br>Teaching tech: decoding the many faces of repetitive patterns in learning.
+<!--!<p>This app is all about a tool that will enable the silent monitoring of effort and the examination of repetitive patterns as a tool that can help one absorb and expand its horizons. not all repetition is bad but repetition needs to be monitored in order to understand how people struggle and cope with learning new things. It is also aiming to help ppl understand the role of social networks in learning. Vertical and horizontal implementation across one year or multiple years on the same subject.pLease do not use this tool as a boogey man or you ll run the risk of having students focusing their efforts to cheat the machine instead of focusing in constructive learning. Instead use this app silently as a monitoring tool, in order to understand engagement, social influences and the ability of students to appropriate and reflect on new knowledge</p>
+-->
+<form id="form" onsubmit="return false;">
+pls enter string one:<br>
+<input type="text" id="uPutM"><br>
+pls enter string two:<br>
+<input type="text" id="uPutN"><br><br>
+<input type="submit" onclick = "takeStrings();" title="Load Data">
+<div id="wrapper" >
+<div id="A" ></div>
+<div id="B" ></div>
+<div id="C" onclick = "clearC();" ></div>
+</div>
+
+</form>
+
+ </body>
+</html>
