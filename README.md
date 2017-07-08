@@ -6,25 +6,25 @@
 
 #### Description in Greek
 
-** Overview **
+###### Overview 
 
 To plagiarism checker παίρνει τα assignments μιας τάξης μαθητών σε μορφή string, και συγκρίνει όλα τα πιθανά ζευγάρια εργασιών εντοπίζοντας και μαρκάροντας σε αυτά (με διάφορες κλίμακες ομοιότητας) ακόμα και μερικώς όμοιες προτάσεις (attachment pic_sample_1). 
 
-** Specifics **
+###### Specifics 
 
 Για να συμβεί αυτό κάθε ζευγάρι εργασιών σπάει σε προτάσεις/arrays λέξεων, οι οποίες αποτελούν τα rows and columns ενός μαθηματικού πίνακα. Ο πίνακας κάνει το iteration πολύ εύκολο κ καθώς κάθε index του resultant 2d array εμπεριέχει τη θέση και των δύο προτάσεων είναι πολύ εύκολο να θέσουμε διαφορετικές html/css κλάσεις και διαδραστικά events στο κάθε ζευγάρι προτάσεων κάνοντας τον εντοπισμό του plagiarism παιχνίδι.
 
 ### Description in English
 
-** Overview **
+###### Overview
 
 This plagiarism checker takes the assignments of a group of students in string format and compares all possible assignment pairs locating and targeting in these even partially similar sentences through a flexible scheme of variable gradients of similarity (attachment pic_sample_1).
 
-** Specifics **
+###### Specifics
 
 For that to happen, every assignment-pair is being broken into sentences/arrays of words that are being processed into the rows and columns of a math matrix. Using a math matrix makes subsequent iterations a joy to work with, and as any element index of the resultant 2d array "encloses" the position of both sentences it is very easy to set different html/css characteristics and interactive events on each sentence-pair making the location of plagiarism a game! 
 
-##### ** Quick-start: **
+##### Quick-start: 
 
 * Open the html file and the https://github.com/alexandros84/Plagiarism-Checker-Part-I/blob/master/test%20strings.
 
