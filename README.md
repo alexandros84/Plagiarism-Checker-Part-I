@@ -1,6 +1,6 @@
 # Plagiarism-Checker-Part-I
 
-##### This app is designed to relieve the cognitive load teachers face in their hard task of educating the masses (for example, through the ability of running intraclass cheating checks) and to offer constructive insights in the way students appropriate new knowledge (through the ability for example to compare en mass, primary sources and assignments)
+##### This app is designed to relieve the cognitive load teachers face in their hard task of educating the masses (for example, through the ability of running intraclass cheating checks) while offering constructive insights about the way students appropriate new knowledge (through the ability for example to compare en mass, primary sources and assignments)
 
 *The goal is to decode the many faces of repetitive patterns in learning.*
 
@@ -14,7 +14,7 @@ To plagiarism checker παίρνει τα assignments μιας τάξης μαθ
 
 Για να συμβεί αυτό κάθε ζευγάρι εργασιών σπάει σε προτάσεις/arrays λέξεων, οι οποίες αποτελούν τα rows and columns ενός μαθηματικού πίνακα. Ο πίνακας κάνει το iteration πολύ εύκολο κ καθώς κάθε index του resultant 2d array εμπεριέχει τη θέση και των δύο προτάσεων είναι πολύ εύκολο να θέσουμε διαφορετικές html/css κλάσεις και διαδραστικά events στο κάθε ζευγάρι προτάσεων κάνοντας τον εντοπισμό του plagiarism παιχνίδι.
 
-### Description in English
+#### Description in English
 
 ###### Overview
 
@@ -22,13 +22,13 @@ This plagiarism checker takes the assignments of a group of students in string f
 
 ###### Specifics
 
-For that to happen, every assignment-pair is being broken into sentences/arrays of words that are being processed into the rows and columns of a math matrix. Using a math matrix makes subsequent iterations a joy to work with, and as any element index of the resultant 2d array "encloses" the position of both sentences it is very easy to set different html/css characteristics and interactive events on each sentence-pair making the location of plagiarism a game! 
+For that to happen, every assignment-pair is being broken into sentences/arrays of words that are being processed into the rows and columns of a math matrix. Using a math matrix makes subsequent iterations a joy to work with, and as any element index of the resultant 2d array "encloses" the position of both sentences, it is very easy to set different html/css classes and interactive js events on each sentence-pair making plagiarism detection a game! 
 
 ##### Quick-start: 
 
-* Open the html file and the https://github.com/alexandros84/Plagiarism-Checker-Part-I/blob/master/test%20strings.
+* Open the [test strings file](https://github.com/alexandros84/Plagiarism-Checker-Part-I/blob/master/test%20strings).
 
-* Copy and paste stringA / stringB to the corresponding input boxes.
+* Copy and paste stringA / stringB to the corresponding input boxes of the html file.
 
 * Press Submit.
 
